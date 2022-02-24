@@ -78,8 +78,8 @@ fun Modifier.trackVisibility(
 ): Modifier {
     return then(
         composed {
-            var shown by rememberSaveable(key) { mutableStateOf(false) }
-            var shownFully by rememberSaveable(key) { mutableStateOf(false) }
+            var shown by rememberSaveable { mutableStateOf(false) }
+            var shownFully by rememberSaveable { mutableStateOf(false) }
 
             var layoutCoordinates: LayoutCoordinates? = remember { null }
 
