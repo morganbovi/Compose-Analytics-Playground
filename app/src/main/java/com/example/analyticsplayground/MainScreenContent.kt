@@ -87,17 +87,19 @@ fun MainScreenContent() {
                 }
                 val isItemVisible = remember(visibleItemsRange) { index !in visibleItemsRange }
 
+                val sendIf = index == 0 || true
+
                 Box(
                     modifier = Modifier
                         .background(if (item.backgroundIsDark) Color.Black.copy(alpha = 0.06f) else Color.White)
                         .padding(16.dp)
                         .trackVisibility(
                             onViewShown = {
-                                if (index == 0)
+                                if (sendIf)
                                     log("Item Container shown: ${index}")
                             },
                             onViewShownFully = {
-                                if (index == 0)
+                                if (sendIf)
                                     log("Item Container shownFully: ${index}")
                             },
                         )
@@ -117,11 +119,11 @@ fun MainScreenContent() {
                                     index = index,
                                     onWindowInfoUpdated = { itemWindowInfo = it },
                                     onViewShown = {
-                                        if (index == 0)
+                                        if (sendIf)
                                             log("text view shown: ${index}")
                                     },
                                     onViewShownFully = {
-                                        if (index == 0)
+                                        if (sendIf)
                                             log("text view shownFully: ${index}")
                                     },
                                 )
@@ -132,11 +134,11 @@ fun MainScreenContent() {
                                 text = itemWindowInfo,
                                 modifier = Modifier.trackVisibility(
                                     onViewShown = {
-                                        if (index == 0)
+                                        if (sendIf)
                                             log("Analytics Data Text shown: ${index}")
                                     },
                                     onViewShownFully = {
-                                        if (index == 0)
+                                        if (sendIf)
                                             log("Analytics Data Text shownFully: ${index}")
                                     },
                                 )
