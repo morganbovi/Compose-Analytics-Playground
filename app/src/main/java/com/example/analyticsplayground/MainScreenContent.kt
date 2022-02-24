@@ -91,6 +91,16 @@ fun MainScreenContent() {
                     modifier = Modifier
                         .background(if (item.backgroundIsDark) Color.Black.copy(alpha = 0.06f) else Color.White)
                         .padding(16.dp)
+                        .trackVisibility(
+                            onViewShown = {
+                                if (index == 0)
+                                    log("Item Container shown: ${index}")
+                            },
+                            onViewShownFully = {
+                                if (index == 0)
+                                    log("Item Container shownFully: ${index}")
+                            },
+                        )
                 ) {
                     Column(
                         Modifier
@@ -118,7 +128,19 @@ fun MainScreenContent() {
                         )
                         if (itemWindowInfo.isNotBlank()) {
                             Spacer(modifier = Modifier.height(8.dp))
-                            Text(text = itemWindowInfo)
+                            Text(
+                                text = itemWindowInfo,
+                                modifier = Modifier.trackVisibility(
+                                    onViewShown = {
+                                        if (index == 0)
+                                            log("Analytics Data Text shown: ${index}")
+                                    },
+                                    onViewShownFully = {
+                                        if (index == 0)
+                                            log("Analytics Data Text shownFully: ${index}")
+                                    },
+                                )
+                            )
                         }
                     }
                 }

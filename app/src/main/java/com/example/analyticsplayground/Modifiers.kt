@@ -71,7 +71,7 @@ fun Modifier.trackHorizontallyScrollableContent(
 
 fun Modifier.trackVisibility(
     key: Any = Unit,
-    index: Int,
+    index: Int = 0,
     onWindowInfoUpdated: (String) -> Unit = {},
     onViewShownFully: () -> Unit = {},
     onViewShown: () -> Unit,
