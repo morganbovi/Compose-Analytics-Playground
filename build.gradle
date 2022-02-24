@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+
+        ver = [
+                accompanist: "0.20.2",
+                compose    : "1.2.0-alpha04"
+        ]
+
+        compose = [
+                accompanist           : "com.google.accompanist:accompanist-insets:$ver.accompanist",
+                accompanistPager      : "com.google.accompanist:accompanist-pager:0.14.0",
+                accompanistSystemUi   : "com.google.accompanist:accompanist-systemuicontroller:$ver.accompanist",
+                accompanistNavMaterial: "com.google.accompanist:accompanist-navigation-material:$ver.accompanist",
+                accompanistNavigation : "com.google.accompanist:accompanist-navigation-animation:$ver.accompanist",
+
+                activity              : "androidx.activity:activity-compose:1.3.0-alpha03",
+                foundation            : "androidx.compose.foundation:foundation:$ver.compose",
+                material              : "androidx.compose.material:material:$ver.compose",
+                materialIcons         : "androidx.compose.material:material-icons-core:$ver.compose",
+                materialIconsExt      : "androidx.compose.material:material-icons-extended:$ver.compose",
+                navigation            : "androidx.navigation:navigation-compose:2.4.0-alpha10",
+                runtime               : "androidx.compose.runtime:runtime-livedata:$ver.compose",
+                ui                    : "androidx.compose.ui:ui:$ver.compose",
+                uiUtil                : "androidx.compose.ui:ui-util:$ver.compose",
+                uiTooling             : "androidx.compose.ui:ui-tooling:$ver.compose",
+        ]
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.2.0-alpha07' apply false
+    id 'com.android.library' version '7.2.0-alpha07' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
